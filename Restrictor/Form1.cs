@@ -22,17 +22,15 @@ namespace Restrictor
         private void Form1_Load(object sender, EventArgs e)
         {
             txtPassword.Focus();
-            //try to get data from config.txt
             try
             {
                 StreamReader sr = new StreamReader("config.txt");
                 string[] fileContents = sr.ReadToEnd().Split('~');
                 _userPW = fileContents[0];
+                sr.Close();
             }
             catch (FileNotFoundException ex)
             {
-                //StreamWriter sw = new StreamWriter("config.txt");
-                //MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up");
                 CreateLogin dataCreation = new CreateLogin();
                 dataCreation.ShowDialog();
                 dataCreation.Focus();
@@ -54,7 +52,7 @@ namespace Restrictor
                 MessageBox.Show("Welcome :)");
                 ControlForm ctrl = new ControlForm();
                 ctrl.Show();
-                this.Hide();
+                
             }
             else
                 MessageBox.Show("Sorry, login info was incorrect. Good Try ;)");
