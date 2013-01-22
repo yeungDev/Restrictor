@@ -43,7 +43,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 65);
+            this.label1.Location = new System.Drawing.Point(86, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 103);
+            this.label2.Location = new System.Drawing.Point(86, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(87, 142);
+            this.label3.Location = new System.Drawing.Point(86, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 2;
@@ -69,49 +69,49 @@
             // 
             // txt1Start
             // 
-            this.txt1Start.Location = new System.Drawing.Point(162, 62);
+            this.txt1Start.Location = new System.Drawing.Point(161, 34);
             this.txt1Start.Name = "txt1Start";
             this.txt1Start.Size = new System.Drawing.Size(100, 20);
             this.txt1Start.TabIndex = 3;
             // 
             // txt1End
             // 
-            this.txt1End.Location = new System.Drawing.Point(272, 62);
+            this.txt1End.Location = new System.Drawing.Point(271, 34);
             this.txt1End.Name = "txt1End";
             this.txt1End.Size = new System.Drawing.Size(100, 20);
             this.txt1End.TabIndex = 4;
             // 
             // txt2Start
             // 
-            this.txt2Start.Location = new System.Drawing.Point(162, 100);
+            this.txt2Start.Location = new System.Drawing.Point(161, 72);
             this.txt2Start.Name = "txt2Start";
             this.txt2Start.Size = new System.Drawing.Size(100, 20);
             this.txt2Start.TabIndex = 5;
             // 
             // txt3Start
             // 
-            this.txt3Start.Location = new System.Drawing.Point(162, 136);
+            this.txt3Start.Location = new System.Drawing.Point(161, 108);
             this.txt3Start.Name = "txt3Start";
             this.txt3Start.Size = new System.Drawing.Size(100, 20);
             this.txt3Start.TabIndex = 6;
             // 
             // txt3End
             // 
-            this.txt3End.Location = new System.Drawing.Point(272, 136);
+            this.txt3End.Location = new System.Drawing.Point(271, 108);
             this.txt3End.Name = "txt3End";
             this.txt3End.Size = new System.Drawing.Size(100, 20);
             this.txt3End.TabIndex = 7;
             // 
             // txt2End
             // 
-            this.txt2End.Location = new System.Drawing.Point(272, 100);
+            this.txt2End.Location = new System.Drawing.Point(271, 72);
             this.txt2End.Name = "txt2End";
             this.txt2End.Size = new System.Drawing.Size(100, 20);
             this.txt2End.TabIndex = 8;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(90, 182);
+            this.btnSave.Location = new System.Drawing.Point(89, 154);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(282, 41);
             this.btnSave.TabIndex = 9;

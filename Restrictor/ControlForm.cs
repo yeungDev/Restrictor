@@ -55,7 +55,7 @@ namespace Restrictor
             }
             catch
             {
-                MessageBox.Show("ControlForm - unable to load streamreader for ControlFormsSetting.txt");
+                MessageBox.Show("ControlForm - \n* unable to load streamreader for ControlFormsSetting.txt\n* or there are currently no time ranges set.");
             }
         }
 
