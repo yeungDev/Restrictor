@@ -23,6 +23,7 @@ namespace Restrictor
             //max 3 restriction zones
             try
             {
+                //need to encode time
                 StreamReader sr = new StreamReader("ControlFormSetting.txt");
                 //separate each restriction by & and separate times by ~
                 string strSR = sr.ReadToEnd();
@@ -62,6 +63,14 @@ namespace Restrictor
         private void btnSave_Click(object sender, EventArgs e)
         {
             //check to make sure all times are valid
+        }
+
+        private void lnkChangePW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateLogin newPW = new CreateLogin();
+            newPW.ShowDialog();
+
+            //need to load streamreader/writer on button click event, instead of on load.
         }
     }
 }

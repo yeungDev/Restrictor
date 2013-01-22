@@ -38,6 +38,7 @@
             this.txt3End = new System.Windows.Forms.TextBox();
             this.txt2End = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lnkChangePW = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -119,11 +120,23 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lnkChangePW
+            // 
+            this.lnkChangePW.AutoSize = true;
+            this.lnkChangePW.Location = new System.Drawing.Point(358, 213);
+            this.lnkChangePW.Name = "lnkChangePW";
+            this.lnkChangePW.Size = new System.Drawing.Size(102, 13);
+            this.lnkChangePW.TabIndex = 10;
+            this.lnkChangePW.TabStop = true;
+            this.lnkChangePW.Text = "Change Password...";
+            this.lnkChangePW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkChangePW_LinkClicked);
+            // 
             // ControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 235);
+            this.Controls.Add(this.lnkChangePW);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txt2End);
             this.Controls.Add(this.txt3End);
@@ -154,5 +167,6 @@
         private System.Windows.Forms.TextBox txt3End;
         private System.Windows.Forms.TextBox txt2End;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.LinkLabel lnkChangePW;
     }
 }
