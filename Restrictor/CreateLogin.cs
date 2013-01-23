@@ -22,7 +22,7 @@ namespace Restrictor
             if (txtPw.Text == txtConfirmPW.Text) //checking to see if passwords match
             {         
                 StreamWriter sw = new StreamWriter("config.txt");
-                sw.Write(txtPw.Text.Trim());
+                sw.Write(Convert.ToBase64String(Encoding.Unicode.GetBytes(txtPw.Text.Trim())));
                 sw.Close();                              
             }
             else
