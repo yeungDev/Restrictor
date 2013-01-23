@@ -21,6 +21,7 @@ namespace Restrictor
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblError.Text = "";
             txtPassword.Focus();
             try
             {
@@ -29,19 +30,12 @@ namespace Restrictor
             }
             catch (FileNotFoundException ex)
             {
-                MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up");
+                MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up","Restrictor~~~");
                 CreateLogin dataCreation = new CreateLogin();
                 dataCreation.ShowDialog();
                 dataCreation.Focus();
             }            
         }
-        //public void LoadData(StreamReader sw)
-        //{
-        //    string _data = sw.ReadToEnd();
-        //    string[] contents = _data.Split('~'); // userName ~ pw
-        //    _userPW = contents[0].ToString();
-        //    sw.Close();
-        //}
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -66,20 +60,17 @@ namespace Restrictor
 
             if (txtPassword.Text == _userPW)
             {
-                MessageBox.Show("Welcome :)");
+                MessageBox.Show("Welcome to Restrictor~~~", "Welcome");
                 ControlForm ctrl = new ControlForm();
+                lblError.Text = "";
                 ctrl.Show();
             }
             else
-                MessageBox.Show("Sorry, login info was incorrect. Good Try ;)");
+            {
+                lblError.Text = "Wrong password, good try";
+                txtPassword.Focus();
+            }   //MessageBox.Show("Sorry, login info was incorrect. Good Try ;)","Invalid");
             txtPassword.Clear();            
-        }
-        static void Encrypt()
-        {
-            string strName = "JOHN YEUNGs123"; 
-            string strEncrypt = Convert.ToBase64String(Encoding.Unicode.GetBytes(strName)); 
-            string decrypt = Encoding.Unicode.GetString(Convert.FromBase64String(strEncrypt)); 
-            Console.WriteLine("{0}\n\n{1}\n\n{2}", strName, strEncrypt, decrypt);
         }
     }
 }
