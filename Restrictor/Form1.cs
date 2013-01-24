@@ -63,13 +63,13 @@ namespace Restrictor
                 MessageBox.Show("Welcome to Restrictor~~~", "Welcome");
                 ControlForm ctrl = new ControlForm();
                 lblError.Text = "";
-                ctrl.Show();
+                ctrl.ShowDialog();
             }
             else
             {
                 lblError.Text = "Wrong password, good try";
                 txtPassword.Focus();
-            }   //MessageBox.Show("Sorry, login info was incorrect. Good Try ;)","Invalid");
+            } 
             txtPassword.Clear();            
         }
     }
