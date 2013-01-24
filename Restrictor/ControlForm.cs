@@ -44,17 +44,7 @@ namespace Restrictor
                 //need to encode time
                 //separate each restriction by & and separate times by ~
                 string strSR = LoadData();
-                //string[] restrictions = strSR.Split('&');
-                string temp = "";
-
-                int i = 0; //count of & signs
-                for (int j = 0; j < strSR.Length; j++)
-                {
-                    if (strSR[j] == '&')
-                        i++;
-                }
-                string[] restrictions = new string[i];
-                
+                string[] restrictions = strSR.Split('&');
 
                 if (restrictions.Length == 1) //only one alarm
                 {
