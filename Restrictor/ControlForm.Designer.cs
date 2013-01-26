@@ -140,6 +140,7 @@
             this.lblDescription.Size = new System.Drawing.Size(128, 168);
             this.lblDescription.TabIndex = 11;
             this.lblDescription.Text = ".";
+            this.lblDescription.Click += new System.EventHandler(this.lblDescription_Click);
             // 
             // lblError
             // 

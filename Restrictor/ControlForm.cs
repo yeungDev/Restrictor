@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-
+//Problems sometimes does not validate invalid times (ex. 88:99PM)
+//still does not load properly
+//should add a input password before allowing to change password
+//possibly put config/controlformsetting.txt in win32 folder
 namespace Restrictor
 {
     public partial class ControlForm : Form
     {
-        //StreamReader sr = new StreamReader("ControlFormSetting.txt");
-        //StreamWriter sw = new StreamWriter("ControlFormSetting.txt");
         private const string CONTROL_FILE = "ControlFormSetting.txt";
         public ControlForm()
         {
@@ -163,6 +164,11 @@ namespace Restrictor
         {
             //sw.Close(); //may not need this
             //CloseStreamWriterOnClosing();
+        }
+
+        private void lblDescription_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
