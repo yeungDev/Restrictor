@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace Restrictor
 {
@@ -34,7 +35,8 @@ namespace Restrictor
                 CreateLogin dataCreation = new CreateLogin();
                 dataCreation.ShowDialog();
                 dataCreation.Focus();
-            }            
+            }    
+        
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -71,6 +73,43 @@ namespace Restrictor
                 txtPassword.Focus();
             } 
             txtPassword.Clear();            
+        }
+        public void LoadTime()
+        {
+            StreamReader sr = new StreamReader("ControlFormSetting.txt");
+            string[] restrictions = sr.ReadToEnd().Split('&');
+            sr.Close();
+            string[] times = new string[restrictions.Length * 2];
+            int i = 0;
+            foreach (string slots in restrictions) //loading time into string array
+            {
+                string[] tArr = slots.Split('~');
+                times[i] = tArr[0];
+                i++;
+                times[i] = tArr[1];
+                i++;
+            } //by now times should be loaded
+            switch (times.Length)
+            {
+                case 2:
+                    if (DateTime.Parse(times[0]) < DateTime.Now && DateTime.Now < DateTime.Parse(times[1]))
+                        ShutDown();
+                    break;
+                case 4:
+
+                    break;
+                case 6:
+
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+        public void ShutDown()
+        {
+            System.Diagnostics.Process.Start("shutdown.exe", "-l -t 180"); //not working?
         }
     }
 }
