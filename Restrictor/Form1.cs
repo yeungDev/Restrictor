@@ -13,6 +13,7 @@ namespace Restrictor
 {
     public partial class LoginForm : Form
     {
+        private const string CMD_CANCEL = "/C shutdown -a"; //aborts the shutdown process
         private string _userPW;
 
         public LoginForm()
@@ -22,6 +23,20 @@ namespace Restrictor
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            { //delete when done
+                int hour = DateTime.Now.Hour;
+                int min = DateTime.Now.Minute;
+                const int SEC = 0;
+                TimeSpan NOW = new TimeSpan(hour, min, SEC);
+                TimeSpan n = new TimeSpan(12, 40, 0);
+                if (NOW >= n)
+                {
+                    ShutDown();
+                }
+            }
+
+
+
             lblError.Text = "";
             txtPassword.Focus();
             try
@@ -31,12 +46,12 @@ namespace Restrictor
             }
             catch (FileNotFoundException ex)
             {
-                MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up","Restrictor~~~");
+                MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up", "Restrictor~~~");
                 CreateLogin dataCreation = new CreateLogin();
                 dataCreation.ShowDialog();
                 dataCreation.Focus();
-            }    
-        
+            }
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -62,6 +77,7 @@ namespace Restrictor
 
             if (txtPassword.Text == _userPW)
             {
+                System.Diagnostics.Process.Start("CMD.exe", CMD_CANCEL);
                 MessageBox.Show("Welcome to Restrictor~~~", "Welcome");
                 ControlForm ctrl = new ControlForm();
                 lblError.Text = "";
@@ -76,6 +92,11 @@ namespace Restrictor
         }
         public void LoadTime()
         {
+            int hour = DateTime.Now.Hour;
+            int min = DateTime.Now.Minute;
+            const int SEC = 0;
+            TimeSpan NOW = new TimeSpan(hour, min, SEC);
+
             StreamReader sr = new StreamReader("ControlFormSetting.txt");
             string[] restrictions = sr.ReadToEnd().Split('&');
             sr.Close();
@@ -92,8 +113,7 @@ namespace Restrictor
             switch (times.Length)
             {
                 case 2:
-                    if (DateTime.Parse(times[0]) < DateTime.Now && DateTime.Now < DateTime.Parse(times[1]))
-                        ShutDown();
+                      //  ShutDown();
                     break;
                 case 4:
 
@@ -102,14 +122,27 @@ namespace Restrictor
 
                     break;
                 default:
+                    TimeSpan n = new TimeSpan(12,40,0);
+                    if (NOW >= n)
+                    {
+                        MessageBox.Show("After");
+                        ShutDown();
+                    }
                     break;
             }
 
 
         }
+        public void LOCK()
+        {
+        }
         public void ShutDown()
         {
-            System.Diagnostics.Process.Start("shutdown.exe", "-l -t 180"); //not working?
+            Process.Start("shutdown.exe", "-s -t 120"); //not working?
+        }
+        public void LockComp()
+        {
+            Process.Start(@"C:\WINDOWS\system32\rundll32.exe", "user32.dll,LockWorkStation");  
         }
     }
 }
