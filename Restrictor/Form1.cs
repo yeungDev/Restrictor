@@ -44,7 +44,7 @@ namespace Restrictor
                 StreamReader sr = new StreamReader("config.txt");
                 sr.Close();
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 MessageBox.Show("Seems like this is the first time you've used this program, let's get you set up", "Restrictor~~~");
                 CreateLogin dataCreation = new CreateLogin();
@@ -67,7 +67,7 @@ namespace Restrictor
                 _userPW = fileContents[0];
                 sr.Close();
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 CreateLogin dataCreation = new CreateLogin();
                 dataCreation.ShowDialog();
@@ -133,16 +133,16 @@ namespace Restrictor
 
 
         }
-        public void LOCK()
-        {
-        }
+
+        #region Computer Commands
         public void ShutDown()
         {
             Process.Start("shutdown.exe", "-s -t 120"); //not working?
         }
         public void LockComp()
         {
-            Process.Start(@"C:\WINDOWS\system32\rundll32.exe", "user32.dll,LockWorkStation");  
+            Process.Start(@"C:\WINDOWS\system32\rundll32.exe", "user32.dll,LockWorkStation");
         }
+        #endregion
     }
 }
