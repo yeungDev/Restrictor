@@ -13,6 +13,7 @@ namespace Restrictor
         [STAThread]
         static void Main()
         {
+            //just FYI, cmd: shutdown -a cancels logoff process.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
